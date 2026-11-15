@@ -1,318 +1,759 @@
+
 <div align="center">
 
-<img src="images/jarvix-banner.svg" alt="JARVIX — AI Command Center" width="100%">
+<img src="images/jarvix-banner.svg" alt="JARVIX AI Command Center" width="100%">
 
 # Contributing to JARVIX
 
-**Thank you for helping build a more honest, more useful assistant.**
+**Building a smarter assistant, together.**
 
-<sub><a href="README.md">README</a> · <a href="#1-welcome">Welcome</a> · <a href="#7-development-environment-setup">Setup</a> · <a href="#14-pull-request-requirements">Pull requests</a> · <a href="#13-security-and-api-key-protection">Security</a></sub>
+<sub>Every contribution matters. Whether it's a bug fix, a new feature, documentation, or an idea, you're welcome to be part of JARVIX.</sub>
 
-<img src="images/jarvix-divider.svg" alt="" width="100%">
+<br>
+
+<a href="https://github.com/rheillunio2-byte/JARVIX"><img src="https://img.shields.io/badge/Project-JARVIX-0b1220?style=for-the-badge&logo=github&logoColor=22d3ee"></a>
+<a href="https://github.com/rheillunio2-byte/JARVIX/issues"><img src="https://img.shields.io/badge/Issues-Open-14b8a6?style=for-the-badge&logo=github"></a>
+<a href="https://github.com/rheillunio2-byte/JARVIX/pulls"><img src="https://img.shields.io/badge/Pull%20Requests-Welcome-8b5cf6?style=for-the-badge&logo=github"></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-22d3ee?style=for-the-badge"></a>
+
+<br><br>
+
+[README](README.md) ·
+[Report a Bug](https://github.com/rheillunio2-byte/JARVIX/issues) ·
+[Request a Feature](https://github.com/rheillunio2-byte/JARVIX/issues) ·
+[Pull Requests](https://github.com/rheillunio2-byte/JARVIX/pulls)
+
+<img src="images/jarvix-divider.svg" width="100%" alt="Divider">
 
 </div>
 
-## Contents
+## 📌 Table of Contents
 
-1. [Welcome](#1-welcome)
-2. [Project vision](#2-project-vision)
-3. [Development philosophy](#3-development-philosophy)
-4. [Ways to contribute](#4-ways-to-contribute)
-5. [Reporting bugs](#5-reporting-bugs)
-6. [Requesting features](#6-requesting-features)
-7. [Development environment setup](#7-development-environment-setup)
-8. [Repository structure](#8-repository-structure)
-9. [Branch naming](#9-branch-naming)
-10. [Commit conventions](#10-commit-conventions)
-11. [Coding standards](#11-coding-standards)
-12. [AI integration guidelines](#12-ai-integration-guidelines)
-13. [Security and API-key protection](#13-security-and-api-key-protection)
-14. [Pull request requirements](#14-pull-request-requirements)
-15. [Testing requirements](#15-testing-requirements)
-16. [Documentation contributions](#16-documentation-contributions)
-17. [License](#17-license)
+1. [Welcome](#-1-welcome)
+2. [Project Vision](#-2-project-vision)
+3. [Technology Stack](#-3-technology-stack)
+4. [Development Principles](#-4-development-principles)
+5. [Ways to Contribute](#-5-ways-to-contribute)
+6. [Reporting Bugs](#-6-reporting-bugs)
+7. [Suggesting Features](#-7-suggesting-features)
+8. [Getting Started](#-8-getting-started)
+9. [Repository Structure](#-9-repository-structure)
+10. [Branch Naming](#-10-branch-naming)
+11. [Commit Guidelines](#-11-commit-guidelines)
+12. [Coding Standards](#-12-coding-standards)
+13. [AI Development Guidelines](#-13-ai-development-guidelines)
+14. [Security Guidelines](#-14-security-guidelines)
+15. [Testing](#-15-testing)
+16. [Pull Request Guidelines](#-16-pull-request-guidelines)
+17. [Documentation](#-17-documentation)
+18. [License](#-18-license)
 
-## 1. Welcome
+---
 
-<img align="right" src="images/jarvix-ai-core.svg" alt="Animated JARVIX AI core" width="180">
+## 👋 1. Welcome
 
-Whether you are fixing a typo, reporting a bug or adding a feature, you are welcome here. You do not need to be an expert: JARVIX is written in plain JavaScript with no framework, no bundler and no runtime dependencies, so you can read most of it in an afternoon.
+<img align="right" src="images/jarvix-ai-core.svg" width="170" alt="JARVIX AI Core">
 
-If this is your first open-source contribution, start with a small change: a documentation fix, a clearer error message or an issue you can reproduce. Ask questions in the issue or pull request; no question is too basic.
+Thank you for your interest in contributing to **JARVIX**!
 
-Please be kind and constructive in every interaction. Assume good intent, give specific feedback, and critique code rather than people. Harassment or discrimination of any kind is not acceptable.
+JARVIX is an open-source personal AI assistant designed to bring conversational AI, productivity tools, and everyday digital operations into one unified workspace.
+
+We believe great software is built through collaboration, experimentation, and continuous improvement.
+
+You don't need to be an experienced developer to contribute. Whether you're a student, beginner, software engineer, designer, or technology enthusiast, there's always an opportunity to help.
+
+**Our goal is simple: Make JARVIX more useful, accessible, reliable, and intelligent.**
 
 <br clear="right">
 
-## 2. Project vision
+## 🎯 2. Project Vision
 
-JARVIX aims to be a personal AI assistant that you can trust: one place for conversation, tasks, notes, files, history and activity, running on your own machine, with your own AI provider.
+JARVIX aims to become a dependable personal AI assistant that combines intelligent conversations with practical everyday functionality.
 
-The parts that matter most to us:
+The project focuses on four fundamental principles:
 
-- **Honesty.** The interface must always show what is real. Demo mode is labelled, local tools are described as local, and a feature is not called finished until it works.
-- **Privacy.** Your data stays in your browser. API keys stay on the server and are never sent to the page.
-- **Usefulness.** Local tools should work without any AI. AI should make the assistant better, not be required for basic things.
-- **Craft.** The interface should be calm, fast, accessible and a pleasure to use.
-
-The [Roadmap](README.md#roadmap) in the README separates what is implemented from what is only planned. Please keep it that way.
-
-## 3. Development philosophy
-
-- **Simple over clever.** Prefer a few readable lines to an abstraction. Keep the zero-dependency server and the no-build front end unless there is a strong reason to change them; if you think there is, open an issue first.
-- **Small, focused changes.** One pull request should do one thing. Smaller changes are reviewed faster and are easier to revert.
-- **Accessible by default.** Everything must be usable with a keyboard, have visible focus, have text alternatives, and respect `prefers-reduced-motion`.
-- **Fail clearly.** Errors shown to users should say what happened and what to do next, without leaking internals or secrets.
-- **Do not overclaim.** In code, UI text, documentation and pull requests, describe what the software does, not what we hope it will do.
-
-## 4. Ways to contribute
-
-You can help without writing code.
-
-- **Report bugs** you find while using JARVIX.
-- **Suggest features** or improvements to existing ones.
-- **Improve documentation**: fix mistakes, add examples, clarify setup steps.
-- **Test** on a browser, operating system or screen size we have not covered. Tests so far have used Chromium only.
-- **Review** open pull requests and leave constructive comments.
-- **Fix issues**, especially ones labelled `good first issue` or `help wanted` if those labels exist.
-- **Improve accessibility**, for example by testing with a screen reader. This has not been tested yet and is very welcome.
-- **Contribute design**: refine the interface or the SVG artwork in `images/`, keeping the original JARVIX identity.
-
-## 5. Reporting bugs
-
-Search [existing issues](https://github.com/rheillunio2-byte/JARVIX/issues) first, then open a new one with:
-
-- **What happened** and **what you expected**.
-- **Steps to reproduce**, as exact as you can make them.
-- **Environment**: operating system, browser and version, Node.js version (`node -v`), and the JARVIX commit or version.
-- **Mode**: demo mode, or which provider (Anthropic, OpenAI, compatible server) and model.
-- **Evidence**: a screenshot, or the browser console and server log output.
-
-> [!CAUTION]
-> Remove API keys, tokens and personal data from anything you paste into an issue. If you find a security problem, do **not** open a public issue; see [Security](#13-security-and-api-key-protection).
-
-## 6. Requesting features
-
-Open an issue that describes:
-
-- **The problem** you are trying to solve, before the solution.
-- **Your proposed solution**, and alternatives you considered.
-- **Who benefits** and how it fits the [vision](#2-project-vision).
-- **Impact** on privacy, security, accessibility and the zero-dependency approach.
-
-Larger features should be discussed and agreed in an issue before you write code, so that your time is not wasted.
-
-## 7. Development environment setup
-
-**Requirements:** Node.js 18 or newer and Git. You do not need an AI key to develop: demo mode and the mock servers used by the tests cover most work.
-
-1. **Fork** the repository on GitHub, then clone your fork:
-
-   ```bash
-   git clone https://github.com/<your-username>/JARVIX.git
-   cd JARVIX
-   git remote add upstream https://github.com/rheillunio2-byte/JARVIX.git
-   ```
-
-2. **Start the app.** There is nothing to install:
-
-   ```bash
-   npm start          # or: npm run dev   (restarts on server changes)
-   ```
-
-   Open <http://127.0.0.1:3000>. Front-end files are served as they are, so refresh the page after editing.
-
-3. **Optional: use a real provider.** Copy the example environment file and add one key:
-
-   ```bash
-   cp .env.example .env
-   ```
-
-   `.env` is git-ignored. Never commit it. See [Configuration](README.md#configuration).
-
-4. **Run the unit tests:**
-
-   ```bash
-   npm test
-   ```
-
-5. **Optional: browser tests.** These need Playwright, which is not a project dependency:
-
-   ```bash
-   npm i -D playwright --no-save
-   npx playwright install chromium
-   npm run test:e2e
-   ```
-
-6. **Keep your fork up to date:**
-
-   ```bash
-   git fetch upstream
-   git rebase upstream/main
-   ```
-
-## 8. Repository structure
-
-```text
-JARVIX/
-├── images/            Screenshots and animated SVG artwork (README / CONTRIBUTING)
-├── server/            Node.js server: static files, /api/*, provider adapters
-│   └── providers/     anthropic.js · openai.js · shared.js · index.js
-├── public/            The web app, served as-is
-│   ├── css/           Styles: theme, layout, components, chat, motion
-│   ├── js/            Logic: state, commands, intent, markdown, voice, orb, ...
-│   │   └── ui/        Views and widgets: messages, composer, sidebar, settings, ...
-│   └── assets/        Logo
-├── tests/             Unit tests (node:test) and tests/e2e (Playwright)
-├── docs/              Markdown documentation
-├── scripts/           gen-docs.js regenerates docs/commands.md
-└── .env.example       Documented configuration template
-```
-
-Useful starting points:
-
-| If you want to… | Look at |
+| Principle | Description |
 |---|---|
-| Add or change a slash command | `public/js/commands.js` |
-| Change how plain-English requests are understood | `public/js/intent.js` |
-| Add an AI provider | `server/providers/` |
-| Change how a view looks or behaves | `public/js/ui/views.js`, `public/css/` |
-| Change Markdown rendering | `public/js/markdown.js` |
+| **Honesty** | Clearly distinguish actual AI responses, demo functionality, and planned features. |
+| **Privacy** | Keep provider API keys on the server and personal application data in local browser storage. |
+| **Usefulness** | Make built-in productivity tools available even without an external AI provider. |
+| **Accessibility** | Build an intuitive, responsive, and inclusive user experience. |
 
-Scripts load in a fixed order from `public/index.html` and share a global `JX` namespace. If you add a file, add its `<script>` tag in the right place. See [docs/architecture.md](docs/architecture.md).
+Every contribution should support these principles.
 
-## 9. Branch naming
+For the current development status, check the [Project Roadmap](README.md#-roadmap).
 
-Branch from an up-to-date `main`, one branch per change, using a short lowercase name with a type prefix:
+## 🛠️ 3. Technology Stack
 
-| Prefix | Use for | Example |
-|---|---|---|
-| `feat/` | New features | `feat/task-due-dates` |
-| `fix/` | Bug fixes | `fix/stream-abort-error` |
-| `docs/` | Documentation only | `docs/setup-troubleshooting` |
-| `refactor/` | Code changes with no behaviour change | `refactor/split-views-module` |
-| `test/` | Adding or fixing tests | `test/unit-converter-edge-cases` |
-| `chore/` | Tooling and housekeeping | `chore/update-gitignore` |
-
-## 10. Commit conventions
-
-We use [Conventional Commits](https://www.conventionalcommits.org/):
-
-```text
-<type>(<optional scope>): <short summary in the imperative>
-
-<optional body: what and why, not how>
-```
-
-Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`.
-
-```text
-feat(tasks): add inline editing in the Tasks view
-fix(server): return 413 for oversized request bodies
-docs(readme): clarify demo mode behaviour
-```
-
-Keep the summary under about 72 characters, write it in the imperative ("add", not "added"), and reference issues in the body (`Fixes #12`). Make commits small enough that each one makes sense on its own.
-
-## 11. Coding standards
-
-**General**
-
-- Plain, modern JavaScript (ES2020+ in the browser, Node 18+ on the server). No frameworks, bundlers or transpilers.
-- **No new runtime dependencies** without prior discussion. The server uses only Node built-ins.
-- Match the surrounding style: two-space indentation, single quotes, semicolons, descriptive names. Keep functions short and comment the *why*.
-
-**Front end**
-
-- Build DOM with the existing helpers (`el(...)`), not by concatenating HTML from user or model text.
-- Anything rendered from user input or model output must be escaped. Markdown output goes through the existing sanitising renderer; do not add `innerHTML` with unescaped data.
-- Store data under the `jarvix.v2.*` localStorage namespace through the state module, and keep a way to export and clear it.
-- **Accessibility:** use semantic elements, labels and ARIA where needed, keep keyboard navigation and visible focus working, and keep contrast readable in both themes.
-- **Motion:** animations must stop when the user asks for reduced motion. Use the existing motion settings rather than adding always-on animation.
-
-**Server**
-
-- Validate all input, keep the request-size limit, and return sanitised errors.
-- Never log request bodies, prompts or keys.
-
-**SVG artwork in `images/`**
-
-- Complete `viewBox`, no JavaScript, no external resources, a sensible static state, and `prefers-reduced-motion` respected. Keep to the existing palette (deep black and navy with cyan, blue and violet accents).
-- Artwork must be original. Do not add logos, characters or assets from other works.
-
-## 12. AI integration guidelines
-
-JARVIX talks to AI models only through the server. When you work on anything AI-related:
-
-- **Keep keys on the server.** The browser calls `/api/chat`; it never receives or sends a provider key.
-- **Stay provider-neutral.** Providers are small adapters that turn a request into an upstream call and yield text chunks. A new provider should be one new file in `server/providers/` registered in `index.js`, with the same streaming behaviour and the same sanitised errors.
-- **Be honest about the source.** Replies from the demo responder must stay labelled as demo output, and AI-only commands must say they need a provider rather than fabricating an answer.
-- **Treat model output as untrusted.** It is escaped and sanitised like any other text. Never execute it, and never render it as raw HTML.
-- **Respect the user's data.** Send only what a request needs. Do not send error messages, demo replies or generated secrets to a model.
-- **Handle failure.** Timeouts, rate limits, cancelled streams and upstream errors must produce a clear message and leave the app usable.
-- **Test without a real key.** Use the mock servers in `tests/e2e/`. Do not make tests depend on a live provider.
-- **Describe capabilities accurately.** If a model or provider behaves differently (for example, no streaming), document it instead of hiding it.
-
-## 13. Security and API-key protection
-
-- **Never commit secrets.** `.env` is git-ignored; keep it that way. Do not paste keys into code, tests, screenshots, issues or pull requests.
-- If you accidentally expose a key, **revoke it with the provider immediately**, then remove it from the change. Deleting a commit does not make a leaked key safe.
-- Use placeholders such as `your-key-here` in documentation and examples.
-- Do not weaken the existing protections (Content-Security-Policy, same-origin checks, rate limiting, body-size limit, error sanitising) without a clear justification in the pull request.
-- Do not add third-party scripts or network calls from the browser without discussion.
-- **Report vulnerabilities privately.** Use GitHub's private vulnerability reporting on the repository's Security tab if it is enabled; otherwise contact the maintainer through their [GitHub profile](https://github.com/rheillunio2-byte) without posting details publicly. Please allow reasonable time for a fix before disclosure.
-
-## 14. Pull request requirements
-
-Before you open a pull request:
-
-- [ ] The branch is based on the latest `main` and has a clear, focused scope.
-- [ ] `npm test` passes, and `npm run test:e2e` passes if you changed the interface or server.
-- [ ] New behaviour has tests; bug fixes have a test that failed before the fix.
-- [ ] No secrets, personal data, large binaries or unrelated formatting changes are included.
-- [ ] Documentation and `.env.example` are updated if behaviour or configuration changed. If you changed commands, run `node scripts/gen-docs.js`.
-- [ ] The UI works with the keyboard and with reduced motion, in dark and light themes.
-- [ ] You describe anything you could **not** test.
-- [ ] No feature is described as complete in the README, UI or docs unless it works.
-
-In the pull request description, explain **what** changed and **why**, link the issue (`Fixes #123`), and include screenshots or a short recording for visual changes. Draft pull requests are welcome for early feedback.
-
-Reviews are done by volunteers, so please be patient. Expect questions and requests for changes; that is a normal part of the process, not criticism. Maintainers may ask you to split a large pull request.
-
-## 15. Testing requirements
-
-| Kind | Command | Covers |
-|---|---|---|
-| Unit | `npm test` | Calculator, unit converter, Markdown renderer, intent router, command registry, highlighter, local tools, server behaviour |
-| End-to-end | `npm run test:e2e` | The real app in Chromium against mock AI servers |
-
-- Tests use Node's built-in runner and need no dependencies. Playwright is needed only for the browser tests.
-- Add a test with every behaviour change or fix. Keep tests deterministic: no real network calls, no real keys and no reliance on the current time unless it is controlled.
-- Describe what you did **not** test. At the time of writing the project has not been tested with real provider keys, real microphone speech recognition, Safari, Firefox or screen readers; reports from those environments are very welcome.
-
-See [docs/testing.md](docs/testing.md) for details.
-
-## 16. Documentation contributions
-
-Documentation is a first-class contribution.
-
-- Write for a newcomer: short sentences, concrete steps, commands in code blocks.
-- Keep it accurate. Verify commands and paths before documenting them, and never describe planned work as if it exists.
-- Use relative links for files in the repository and keep screenshot filenames exactly as they are (`images/Chat.PNG`, `images/Activity.PNG`, `images/Files.PNG`, `images/History.PNG`, `images/Noted.PNG`, `images/Tasks.PNG`).
-- Visual artwork lives in `images/`. The `docs/` folder holds text only.
-- `docs/commands.md` is generated: change the command registry and run `node scripts/gen-docs.js` instead of editing it by hand.
-- Use badges sparingly and only with real data.
-
-## 17. License
-
-JARVIX is released under the [MIT License](https://github.com/rheillunio2-byte/JARVIX?tab=MIT-1-ov-file). By submitting a contribution, you agree that it may be distributed under the same license, and you confirm that you have the right to contribute it.
+Before contributing, familiarize yourself with the technologies used in JARVIX.
 
 <div align="center">
 
-<img src="images/jarvix-divider.svg" alt="" width="100%">
+**Frontend**
 
-<img src="images/jarvix-footer.svg" alt="JARVIX — Beyond Conversation. Into Intelligent Assistance." width="100%">
+<img src="https://skillicons.dev/icons?i=html,css,js" alt="Frontend technologies">
 
-<sub>Thank you for contributing · <a href="README.md">Back to README</a></sub>
+**Backend**
+
+<img src="https://skillicons.dev/icons?i=nodejs" alt="Node.js">
+
+**AI Integration**
+
+<img src="https://img.shields.io/badge/Anthropic%20Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white">
+<img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white">
+<img src="https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white">
+
+**Development Tools**
+
+<img src="https://skillicons.dev/icons?i=git,github,vscode" alt="Development tools">
+
+</div>
+
+### Technology Reference
+
+| Area | Technology |
+|---|---|
+| Frontend | HTML5, CSS3, Vanilla JavaScript |
+| Backend | Node.js 18+ |
+| Server | Native Node.js HTTP modules |
+| AI Providers | Anthropic API, OpenAI API |
+| Compatible Models | Ollama, LM Studio, OpenRouter, vLLM, Groq |
+| Graphics | Canvas 2D, SVG |
+| Voice | Web Speech API |
+| Audio | Web Audio API |
+| Storage | Browser localStorage |
+| Communication | REST API, Server-Sent Events |
+| Testing | Node.js Test Runner, Playwright |
+| Version Control | Git and GitHub |
+
+### Development Philosophy
+
+- No frontend frameworks.
+- No bundlers or build requirements.
+- No mandatory runtime dependencies.
+- Modular and maintainable JavaScript.
+- Lightweight server architecture.
+
+Please discuss significant architectural changes before introducing frameworks, build tools, or additional runtime dependencies.
+
+## 💡 4. Development Principles
+
+All contributors are expected to follow these principles:
+
+**1. Keep It Simple**
+
+Prefer readable, maintainable code over unnecessary abstractions.
+
+**2. Keep Changes Focused**
+
+Each pull request should address one primary issue or feature.
+
+**3. Prioritize Accessibility**
+
+Support keyboard navigation, readable contrast, semantic HTML, and reduced-motion preferences.
+
+**4. Protect User Data**
+
+Never expose API keys, personal information, or sensitive application data.
+
+**5. Be Transparent**
+
+Never describe incomplete or planned functionality as implemented.
+
+**6. Maintain Consistency**
+
+Follow the existing architecture, naming conventions, interface design, and coding style.
+
+## 🤝 5. Ways to Contribute
+
+There are many ways to participate in JARVIX.
+
+| Contribution | Examples |
+|---|---|
+| Development | Implement features and improve existing functionality |
+| Bug Fixes | Resolve errors, crashes, and unexpected behavior |
+| UI/UX Design | Improve layouts, animations, accessibility, and responsiveness |
+| AI Integration | Improve provider compatibility and response handling |
+| Documentation | Improve README, setup guides, and technical documentation |
+| Testing | Identify bugs and add automated test coverage |
+| Security | Identify vulnerabilities and recommend improvements |
+| Ideas | Suggest useful integrations and future capabilities |
+
+You can also contribute by reviewing pull requests and helping other contributors.
+
+Look for issues labelled `good first issue` or `help wanted` when available.
+
+## 🐛 6. Reporting Bugs
+
+Found something that doesn't work as expected?
+
+Before submitting a report, search the [existing issues](https://github.com/rheillunio2-byte/JARVIX/issues) to avoid duplicates.
+
+When reporting a bug, include:
+
+- **Title:** A short and descriptive summary.
+- **Description:** What happened and what you expected.
+- **Steps to Reproduce:** Clear instructions to recreate the problem.
+- **Environment:** Operating system, browser, and Node.js version.
+- **Application Mode:** DEMO or LIVE, including provider and model when relevant.
+- **Evidence:** Screenshots, browser console errors, or server logs.
+
+### Bug Report Template
+
+```markdown
+## Bug Description
+
+Describe the issue.
+
+## Expected Behavior
+
+What should happen?
+
+## Actual Behavior
+
+What happened instead?
+
+## Steps to Reproduce
+
+1.
+2.
+3.
+
+## Environment
+
+- OS:
+- Browser:
+- Node.js:
+- JARVIX Mode:
+
+## Screenshots / Logs
+
+Attach relevant evidence.
+```
+
+> **Security reminder:** Never include API keys, authentication tokens, passwords, or personal information in public bug reports.
+
+## 🌱 7. Suggesting Features
+
+Have an idea that could improve JARVIX?
+
+We welcome feature proposals, especially those that improve productivity, accessibility, AI capabilities, and user experience.
+
+Before submitting a proposal, consider:
+
+1. What problem does the feature solve?
+2. How would it improve the application?
+3. Who would benefit from it?
+4. How would it fit into the existing architecture?
+5. Would it introduce additional dependencies or security concerns?
+
+### Feature Request Template
+
+```markdown
+## Feature Title
+
+Give your idea a clear name.
+
+## Problem Statement
+
+What problem are you trying to solve?
+
+## Proposed Solution
+
+Describe your proposed feature.
+
+## Expected Benefits
+
+How would this improve JARVIX?
+
+## Additional Context
+
+Add references, examples, or screenshots.
+```
+
+For larger features, open a discussion or issue before starting development.
+
+## ⚙️ 8. Getting Started
+
+Ready to contribute? Follow these steps.
+
+### Prerequisites
+
+Make sure you have:
+
+- Node.js 18 or newer.
+- Git installed.
+- A GitHub account.
+- A code editor such as Visual Studio Code.
+- A modern web browser.
+
+An AI provider API key is optional. Most development can be performed using DEMO mode.
+
+### Step 1. Fork the Repository
+
+Visit the official repository:
+
+https://github.com/rheillunio2-byte/JARVIX
+
+Click **Fork** in the upper-right corner.
+
+### Step 2. Clone Your Fork
+
+Replace `<your-username>` with your GitHub username.
+
+```bash
+git clone https://github.com/<your-username>/JARVIX.git
+
+cd JARVIX
+```
+
+### Step 3. Add the Original Repository
+
+```bash
+git remote add upstream https://github.com/rheillunio2-byte/JARVIX.git
+```
+
+### Step 4. Start the Application
+
+```bash
+npm start
+```
+
+Or use development mode:
+
+```bash
+npm run dev
+```
+
+Open your browser:
+
+```text
+http://127.0.0.1:3000
+```
+
+No `npm install` is required for the normal application setup.
+
+### Step 5. Make Your Changes
+
+Open the project in your preferred editor:
+
+```bash
+code .
+```
+
+Explore the existing codebase and make your changes.
+
+### Step 6. Run Tests
+
+```bash
+npm test
+```
+
+For browser testing:
+
+```bash
+npm i -D playwright --no-save
+
+npx playwright install chromium
+
+npm run test:e2e
+```
+
+### Step 7. Keep Your Fork Updated
+
+Before starting new work:
+
+```bash
+git fetch upstream
+
+git rebase upstream/main
+```
+
+## 📂 9. Repository Structure
+
+Understanding the project structure makes development easier.
+
+```text
+JARVIX/
+│
+├── images/                 README and documentation artwork
+│
+├── server/
+│   ├── server.js           HTTP server and API endpoints
+│   ├── config.js           Environment configuration
+│   └── providers/          AI provider integrations
+│       ├── anthropic.js
+│       ├── openai.js
+│       ├── shared.js
+│       └── index.js
+│
+├── public/
+│   ├── index.html
+│   ├── css/                Application styles
+│   ├── js/                 Application logic
+│   │   └── ui/             Interface components
+│   └── assets/             Application assets
+│
+├── tests/
+│   ├── Unit tests
+│   └── e2e/                Browser tests
+│
+├── docs/                   Technical documentation
+│
+├── scripts/
+│   └── gen-docs.js
+│
+├── .env.example
+├── package.json
+├── CONTRIBUTING.md
+└── LICENSE
+```
+
+### Where Should You Make Changes?
+
+| Task | Recommended Location |
+|---|---|
+| Add slash commands | `public/js/commands.js` |
+| Improve natural-language recognition | `public/js/intent.js` |
+| Add an AI provider | `server/providers/` |
+| Modify application views | `public/js/ui/` |
+| Improve styling | `public/css/` |
+| Modify Markdown rendering | `public/js/markdown.js` |
+| Add automated tests | `tests/` |
+| Update documentation | `docs/` |
+
+For additional technical information, read [docs/architecture.md](docs/architecture.md).
+
+## 🌿 10. Branch Naming
+
+Use descriptive branch names with a consistent prefix.
+
+| Prefix | Purpose | Example |
+|---|---|---|
+| `feat/` | New features | `feat/task-reminders` |
+| `fix/` | Bug fixes | `fix/chat-stream-error` |
+| `docs/` | Documentation | `docs/update-installation` |
+| `refactor/` | Code improvements | `refactor/command-handler` |
+| `test/` | Testing | `test/provider-integration` |
+| `chore/` | Maintenance | `chore/update-dependencies` |
+
+Example:
+
+```bash
+git checkout -b feat/new-dashboard-widget
+```
+
+Use one branch for one primary contribution.
+
+## 📝 11. Commit Guidelines
+
+JARVIX follows the [Conventional Commits](https://www.conventionalcommits.org/) specification.
+
+### Commit Format
+
+```text
+<type>(<scope>): <description>
+```
+
+### Accepted Commit Types
+
+| Type | Purpose |
+|---|---|
+| `feat` | Introduce a new feature |
+| `fix` | Fix a bug |
+| `docs` | Documentation changes |
+| `style` | Formatting and visual changes |
+| `refactor` | Improve code without changing behavior |
+| `test` | Add or update tests |
+| `chore` | Maintenance and configuration |
+
+### Examples
+
+```bash
+git commit -m "feat(tasks): add task filtering"
+
+git commit -m "fix(chat): resolve streaming issue"
+
+git commit -m "docs(readme): improve setup guide"
+
+git commit -m "refactor(server): simplify provider routing"
+```
+
+Keep commit messages short, descriptive, and meaningful.
+
+## 💻 12. Coding Standards
+
+To maintain code quality, contributors should follow the existing conventions.
+
+### General Standards
+
+- Use modern JavaScript (ES2020+).
+- Use two-space indentation.
+- Use single quotes and semicolons.
+- Use descriptive variable and function names.
+- Keep functions focused and maintainable.
+- Avoid unnecessary dependencies.
+- Comment complex logic when necessary.
+
+### Frontend Standards
+
+- Use semantic HTML elements.
+- Follow existing DOM helper patterns.
+- Escape user-generated and model-generated content.
+- Avoid inserting untrusted content using raw `innerHTML`.
+- Maintain compatibility with dark and light themes.
+- Preserve keyboard navigation.
+- Respect `prefers-reduced-motion`.
+- Keep application data within the existing `jarvix.v2.*` localStorage namespace through the state module.
+
+### Backend Standards
+
+- Validate incoming requests.
+- Sanitize errors returned to clients.
+- Preserve existing request-size limits.
+- Never expose provider API keys.
+- Avoid logging prompts, request bodies, or secrets.
+- Preserve existing security protections.
+
+### SVG & Visual Design
+
+Contributions to the JARVIX visual identity are welcome.
+
+When modifying SVG artwork:
+
+- Preserve the original JARVIX design direction.
+- Use the existing deep navy, black, cyan, blue, and violet palette.
+- Include a complete `viewBox`.
+- Avoid unnecessary external resources.
+- Do not introduce JavaScript into SVG artwork.
+- Respect reduced-motion preferences.
+- Keep artwork original and consistent with the application.
+
+## 🤖 13. AI Development Guidelines
+
+AI integration is an important part of JARVIX.
+
+All AI-related contributions must follow these guidelines.
+
+**Provider Compatibility**
+
+- Keep integrations modular.
+- Use the existing provider adapter architecture.
+- Maintain consistent streaming behavior.
+- Handle provider-specific errors appropriately.
+
+**API Key Protection**
+
+- Provider keys must remain server-side.
+- Never expose credentials through frontend JavaScript.
+- Never include real credentials in examples or tests.
+
+**Responsible AI Behavior**
+
+- Never fabricate responses when a provider is unavailable.
+- Keep DEMO responses clearly labelled.
+- Treat model output as untrusted input.
+- Never execute generated model output as code.
+- Do not send unnecessary personal information to external providers.
+
+**Reliability**
+
+- Handle timeouts and connection failures.
+- Support request cancellation.
+- Preserve a usable interface when an AI provider fails.
+- Write tests using mock providers rather than depending on live API services.
+
+## 🔐 14. Security Guidelines
+
+Security is a shared responsibility.
+
+Every contributor must follow these requirements:
+
+- Never commit `.env` files containing real credentials.
+- Never publish API keys, tokens, or passwords.
+- Never hardcode secrets into application files.
+- Do not weaken existing security protections without justification.
+- Avoid unnecessary third-party scripts and external browser requests.
+- Validate and sanitize user input.
+- Keep sensitive server-side operations on the backend.
+
+### Reporting Security Vulnerabilities
+
+Do not publicly disclose exploitable security vulnerabilities through ordinary GitHub issues.
+
+Use GitHub's private vulnerability reporting through the repository's Security tab if available. Otherwise, contact the maintainer privately through:
+
+https://github.com/rheillunio2-byte
+
+Please allow reasonable time for investigation and remediation.
+
+## 🧪 15. Testing
+
+Testing helps ensure that new contributions do not break existing functionality.
+
+JARVIX currently supports two main testing approaches.
+
+| Test Type | Command | Purpose |
+|---|---|---|
+| Unit Testing | `npm test` | Tests utilities, commands, and application logic |
+| End-to-End Testing | `npm run test:e2e` | Tests application behavior in Chromium |
+
+### Testing Requirements
+
+- Add tests when introducing new functionality.
+- Include regression tests for bug fixes.
+- Keep tests deterministic.
+- Avoid real API keys in automated tests.
+- Do not depend on external network availability.
+- Report any tests you could not perform.
+
+For detailed testing instructions, see [docs/testing.md](docs/testing.md).
+
+## 🔀 16. Pull Request Guidelines
+
+Ready to submit your contribution?
+
+Before opening a pull request, make sure you have completed the following checklist.
+
+### Pull Request Checklist
+
+- [ ] My changes address a specific issue or improvement.
+- [ ] My branch is based on the latest `main`.
+- [ ] My code follows the existing coding standards.
+- [ ] I have tested my changes locally.
+- [ ] Existing tests pass.
+- [ ] I have added tests where necessary.
+- [ ] I have not included API keys or sensitive information.
+- [ ] I have updated relevant documentation.
+- [ ] I have checked dark and light themes when changing the UI.
+- [ ] I have considered keyboard accessibility and reduced motion.
+- [ ] I have documented anything that could not be tested.
+
+### Submitting Your Pull Request
+
+Push your branch:
+
+```bash
+git add .
+
+git commit -m "feat(scope): describe your contribution"
+
+git push origin your-branch-name
+```
+
+Then:
+
+1. Open the original JARVIX repository.
+2. Select **Pull Requests**.
+3. Click **New Pull Request**.
+4. Select your branch.
+5. Provide a descriptive title and explanation.
+6. Link the related issue when applicable.
+7. Include screenshots for interface changes.
+8. Submit your pull request.
+
+### Pull Request Description Template
+
+```markdown
+## Summary
+
+Briefly describe your contribution.
+
+## Changes Made
+
+- 
+- 
+- 
+
+## Related Issue
+
+Closes #
+
+## Testing
+
+- [ ] npm test
+- [ ] npm run test:e2e (if applicable)
+- [ ] Manually tested
+
+## Screenshots
+
+Add screenshots if applicable.
+
+## Additional Notes
+
+Mention limitations or anything that needs further review.
+```
+
+### Review Process
+
+Every pull request is subject to review.
+
+Maintainers may request:
+
+- Code improvements.
+- Additional testing.
+- Documentation updates.
+- Clarifications about implementation.
+- Changes to better align with the project's architecture.
+
+Please be patient and respectful throughout the review process.
+
+## 📚 17. Documentation
+
+Documentation is just as important as code.
+
+When contributing to documentation:
+
+- Use clear and beginner-friendly language.
+- Verify commands before documenting them.
+- Use relative links for repository files.
+- Keep installation instructions accurate.
+- Distinguish implemented features from planned features.
+- Preserve existing image filenames and paths.
+- Update technical documentation when architecture changes.
+
+**Important:** `docs/commands.md` is generated automatically.
+
+When changing the command registry, run:
+
+```bash
+node scripts/gen-docs.js
+```
+
+Do not manually edit the generated command documentation.
+
+## 📜 18. License
+
+JARVIX is distributed under the **MIT License**.
+
+By submitting a contribution, you agree that your contribution may be distributed under the same license and confirm that you have the right to submit it.
+
+Read the [LICENSE](LICENSE) file for complete details.
+
+---
+
+<div align="center">
+
+<img src="images/jarvix-divider.svg" width="100%" alt="Divider">
+
+<img src="images/jarvix-footer.svg" width="100%" alt="JARVIX Footer">
+
+### Thank You for Contributing!
+
+Every improvement, idea, and contribution helps move JARVIX forward.
+
+**Together, we're building more than an AI chatbot. We're building a smarter personal assistant.**
+
+<br>
+
+<a href="https://github.com/rheillunio2-byte/JARVIX">Explore JARVIX</a> ·
+<a href="https://github.com/rheillunio2-byte/JARVIX/issues">Contribute an Idea</a> ·
+<a href="https://github.com/rheillunio2-byte/JARVIX/pulls">Submit a Pull Request</a>
+
+<br>
+
+<sub>Maintained by <a href="https://github.com/rheillunio2-byte">Rheil Evans Lunio</a></sub>
+
+<sub>JARVIX · Open Source · MIT License</sub>
 
 </div>
